@@ -53,8 +53,8 @@
         ::-webkit-scrollbar-thumb { background: #FF7A00; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #FFB347; }
 
-        .glass { background: rgba(22, 22, 22, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 122, 0, 0.1); }
-        .glass-solid { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 122, 0, 0.2); }
+        .glass { background: #161616; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 122, 0, 0.1); }
+        .glass-solid { background: #0A0A0A; border-bottom: 2px solid rgba(255, 122, 0, 0.3); }
 
         .glow-orange { box-shadow: 0 0 20px rgba(255, 122, 0, 0.3), 0 0 40px rgba(255, 122, 0, 0.1); }
         .glow-text { text-shadow: 0 0 20px rgba(255, 122, 0, 0.5); }
@@ -218,7 +218,7 @@
     </div>
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
                 <a href="#home" class="flex items-center space-x-2 z-50">
@@ -241,24 +241,38 @@
                     <a href="tel:09520667135" class="ml-4 px-6 py-2.5 bg-electric text-matte font-semibold text-sm rounded-lg hover:bg-amber transition-all duration-300 hover:shadow-lg hover:shadow-electric/30">Join Now</a>
                 </div>
 
-                <button id="menuBtn" class="lg:hidden z-50 w-10 h-10 flex flex-col items-center justify-center space-y-1.5" aria-label="Menu">
-                    <span class="menu-line w-6 h-0.5 bg-softwhite transition-all duration-300"></span>
-                    <span class="menu-line w-6 h-0.5 bg-softwhite transition-all duration-300"></span>
-                    <span class="menu-line w-4 h-0.5 bg-softwhite transition-all duration-300 ml-auto"></span>
+                <button id="menuBtn" class="lg:hidden z-50 w-10 h-10 flex items-center justify-center" aria-label="Menu">
+                    <svg id="menuIcon" class="w-7 h-7 text-softwhite" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="closeIcon" class="w-7 h-7 text-softwhite hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
                 </button>
             </div>
         </div>
 
-        <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-matte/98 backdrop-blur-xl flex flex-col items-center justify-center space-y-6 lg:hidden">
-            <a href="#home" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">Home</a>
-            <a href="#programs" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">Programs</a>
-            <a href="#transformations" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">Transformations</a>
-            <a href="#trainers" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">Trainers</a>
-            <a href="#reviews" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">Reviews</a>
-            <a href="#membership" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">Membership</a>
-            <a href="#faq" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">FAQ</a>
-            <a href="#contact" class="mobile-link text-2xl font-bebas text-softwhite hover:text-electric transition-colors">Contact</a>
-            <a href="tel:09520667135" class="mt-4 px-8 py-3 bg-electric text-matte font-semibold rounded-lg text-lg">Call Now</a>
+        <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center lg:hidden z-40">
+            <div class="relative w-full max-w-sm mx-auto px-4 bg-charcoal/95 rounded-2xl p-8 border border-electric/20">
+                <button id="mobileCloseBtn" class="absolute top-4 right-4 z-50 w-10 h-10 flex items-center justify-center hover:text-electric transition-colors" aria-label="Close menu">
+                    <svg class="w-7 h-7 text-softwhite" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <div class="flex flex-col space-y-4 mt-2 text-center">
+                    <a href="#home" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">Home</a>
+                    <a href="#programs" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">Programs</a>
+                    <a href="#transformations" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">Transformations</a>
+                    <a href="#trainers" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">Trainers</a>
+                    <a href="#reviews" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">Reviews</a>
+                    <a href="#membership" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">Membership</a>
+                    <a href="#faq" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">FAQ</a>
+                    <a href="#contact" class="mobile-link text-xl font-bebas text-softwhite hover:text-electric transition-colors">Contact</a>
+                    <div class="pt-2">
+                        <a href="tel:09520667135" class="block px-8 py-3 bg-electric text-matte font-semibold rounded-lg text-center hover:bg-amber transition-colors">Call Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -1533,39 +1547,30 @@
         window.addEventListener('scroll', handleNavScroll, { passive: true });
 
         const menuBtn = document.getElementById('menuBtn');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        const menuLines = menuBtn.querySelectorAll('.menu-line');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
         let menuOpen = false;
+
+        function closeMenu() {
+            menuOpen = false;
+            mobileMenu.classList.remove('open');
+            menuIcon.classList.remove('hidden');
+            document.body.style.overflow = '';
+        }
 
         menuBtn.addEventListener('click', function() {
             menuOpen = !menuOpen;
             mobileMenu.classList.toggle('open');
-            
-            if (menuOpen) {
-                menuLines[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
-                menuLines[1].style.opacity = '0';
-                menuLines[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
-                menuLines[2].style.width = '24px';
-                document.body.style.overflow = 'hidden';
-            } else {
-                menuLines[0].style.transform = '';
-                menuLines[1].style.opacity = '1';
-                menuLines[2].style.transform = '';
-                menuLines[2].style.width = '16px';
-                document.body.style.overflow = '';
-            }
+            menuIcon.classList.toggle('hidden');
+            document.body.style.overflow = menuOpen ? 'hidden' : '';
         });
 
+        mobileCloseBtn.addEventListener('click', closeMenu);
+
         document.querySelectorAll('.mobile-link').forEach(function(link) {
-            link.addEventListener('click', function() {
-                menuOpen = false;
-                mobileMenu.classList.remove('open');
-                menuLines[0].style.transform = '';
-                menuLines[1].style.opacity = '1';
-                menuLines[2].style.transform = '';
-                menuLines[2].style.width = '16px';
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMenu);
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
